@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>HomePage</title>
+    <style>
+       
+h1{
+  position: bottom;
+}
+.menu{
+  background-color: #0959ca;
+  padding: 0px;
+  margin: 0px;
+  border-radius: 15px;
+  position: fixed;
+}
+ul{
+  list-style-type: none;
+  overflow: hidden;
+  background-color: #0959ca;
+}
+li{
+  float: left;
+}
+li a{
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+a:hover{
+  background-color: #4CAFFF;
+}
+#roundedcorners{
+  border-radius: 25px;
+  border: 2px solid white;
+  padding: 20px;
+  width: 200px;
+  height: 150px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+  margin-right: 100px;
+  float: right;
+  background-color: white;
+}
+.button{
+  background-color: #4CAFFF;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 0px;
+  border-radius: 55px;
+}
+h4{
+  font-size: 18px;
+  color: #4CAFFF;
+  display: block;
+  padding: 3px 10px;
+}
+h2{
+  color: white;
+}
+.menuleft:hover{
+  background-color: #4CAFFF;
+}
+.menuleft{
+  padding: 0px 5px;
+}
+th{
+  color: #4CAF50;
+  font-size: 24px;
+  font-weight: bold;
+}
+body{
+  font-family: sans-serif;
+  background-color: #4CAFFF;
+}
+.footer{
+  text-align: center;
+  position: fixed;
+  left: 0px;
+  bottom: 0px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 5%;
+}
+.footer1{
+  text-align: bottom;
+  position: relative;
+  left: 0px;
+  bottom: 0px;
+  padding-bottom: 10px;
+  width: 100%;
+  height: 5%;
+}
+
+.botton:hover{
+  background-color: #4CAF50;
+}
+.buttonNext{
+  background-color: white;
+  border: none;
+  color: #4CAF50;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-right: 0px;
+  border-radius: 55px;
+}
+img{
+      border:0;
+   }
+   ::selection{
+      color:#fff;
+      background:#00a2ff;
+      text-shadow:0 1px rgba(0,0,0,0.2);
+   }
+   header,
+   nav,
+   section,
+   details,
+   summary,
+   article,
+   footer{
+      display:block;
+     padding: 20px;
+   }
+#content{
+   margin:0 auto;
+   padding-bottom:50px;
+   width:280px;
+}
+   .shoppingCart{
+      position:relative;
+      margin-top:40px;
+      overflow:hidden;
+      color: green;
+      color: hsla(201,14%,33%,0.8);
+              border-radius:4px 4px 0 0;
+              box-shadow:0 2px 3px 1px rgba(0,0,0,0);
+              transition:all 0.4s;
+   }
+      .shoppingCart:hover{
+         color:#495860;
+                 box-shadow:0 2px 4px 1px rgba(0,0,0,0.1);
+      }
+      .shoppingCart summary{
+         padding:12px 16px 14px 16px;
+         overflow:hidden;
+         background:#222;
+         display: linear-gradient(top,#4ca9e2 1%,#1d7cb7 100%);
+                 border-radius:4px 4px 0 0;
+                 box-shadow:inset 0 1px 0 #72b3d3, inset 0 -1px 0 #155f8e;
+          height: 60px;
+      }
+         .shoppingCart h4{
+            float:left;
+            color:#d4f1ff;
+            text-shadow:0 1px 0 rgba(0,0,0,0.4);
+         }
+            .shoppingCart:hover h4{
+               color: rgb(42, 168, 218);
+            }
+         .arrow{
+            float:right;
+            width:0;
+            height:0;
+            margin-top:7px;
+            border-right:4px solid transparent;
+            border-bottom:4px solid hsla(200,17%,93%,0.5);
+            border-left:4px solid transparent;
+                    transition:all 0.5s;
+           background-color: white;
+         }
+            .shoppingCart:hover .arrow{
+               border-bottom-color:hsla(200,17%,93%,1);
+                       transform:rotate(-180deg);
+            }
+      .shoppingCart ul{
+         list-style:none;
+         position:relative;
+         display:block;
+      }
+         .shoppingCart li{
+            padding:0 15px;
+            overflow:hidden;
+            height:0px;
+            background:#fff;
+                    transition:all 0.3s;
+         }
+            .shoppingCart:hover li{
+               height:auto;
+               padding:10px 15px;
+               border-bottom:1px solid rgba(0,0,0,0.1);
+                       box-shadow:inset 0 1px 0 #fff;
+            }
+            .shoppingCart:hover li:hover{
+               text-shadow:0 -1px #fff;
+                       box-shadow:inset 0 15px 20px #eee;
+            }
+            .shoppingCart li a{
+               color:#495860;
+               text-decoration:none;
+               border-color:#666;
+               border-bottom:1px dotted rgba(0,0,0,0.6);
+            }
+               .shoppingCart li a:hover{
+                  border:0;
+               }
+            .shoppingCart li span{
+               display:block;
+               float:left;
+            }
+            .shoppingCart li strong{
+               display:block;
+               float:right;
+            }
+      .shoppingCart p{
+         padding:12px 16px 14px 16px;
+         overflow:hidden;
+         background:#fff;
+                 transition:background 0.2s;
+      }
+         .shoppingCart:hover p{
+            text-shadow:0 -1px #fff;
+            background:#eee;
+         }
+         .shoppingCart p span{
+            display:block;
+         }
+            .shoppingCart p span:first-child{
+               float:left;
+            }
+               .shoppingCart:hover p span:first-child{
+                  display:none;
+               }
+            .shoppingCart p span:last-child{
+               float:right;
+            }
+         
+    
+
+td{
+vertical-align: middle;
+color: white;    
+padding-top: 10px;
+padding-right: 30px;    
+}
+
+.textm{
+text-align: center;    
+white-space: nowrap;
+overflow: hidden;   
+}
+
+li span{
+ width: 100%;   
+}
+  aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px; 
+    height: 100vh;
+    padding: 20px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease; 
+    background-color: #21301576;
+}
+
+main {
+    margin-left: 270px; 
+    padding: 20px;
+    height: 2000px; 
+}
+
+aside h2 {
+  font-size: 24px;
+}
+
+aside p {
+  font-size: 16px;
+  text-align: justify;
+}
+
+    </style>
+  </head>
+  <body id="Homepage">
+    <main>
+    <div class="menu" style="float:top; width: 100%; height:11%;">
+    <div class="menuleft" style="float:left;">
+    <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/bookIcon.png" width="50px" height="50px" style="float:left;">
+    <h2 style="float:left;">Book Store</h2>
+    </a>
+    </div>
+    <div class="menuright" style="float:left;">
+     
+    <ul> 
+        <li><a href="#Homepage" id="menufirstelement">Home</a></li>
+        <li><a href="chatbot.html">Catalogue</a></li>
+        <li><a href="book2.html">More and Contacts</a></li>
+        <li><a href="#carrt">Shopping Cart</a></li>
+        <li><a href="#payment">Payment</a></li>
+
+    </ul>   
+    </div>    
+</div> 
+</center>   
+</div>
+<div id="book_library" style="float:left;display:inline;">
+  <div class="full" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <img src="https://images.unsplash.com/photo-1569511165985-82767e534026?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+                 lass="quotes" style="padding:20px;" width="80%" height="100%">
+        </center>
+      
+    </div>
+</div> 
+<br>
+<br>
+<div id="welcome_to_catalogue" style="float:center;display:inline;">
+    <div class="center">
+        <center>
+            <h1 style="color:white;">Explore our collection and find your next great read. From timeless classics to the latest bestsellers, we have something for every book lover's heart.</h1>
+        </center>
+    </div>
+  </div>  
+<br>
+<br>  
+<div id="Catalogue">
+<div class="full" style="float:left;display:inline;">
+<div class="scrollable menu-content" style="float:left; width:30%;">    
+		<ul class="required-tracking" data-tracking-id="clp_books_clp/CategoryList_0-1_catergorylinks" >
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="0_AcademicandTestPrep"> Academic and Test Prep </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="1_Biographies&amp;Autobiographies"> Biographies &amp; Autobiographies </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="5_CollegeText&amp;Reference"> College Text &amp; Reference </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="7_Computers&amp;Internet"> Computers &amp; Internet </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="site-seeing"> Spend ten days in Amsterdam </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="history"> The history of Netherlands </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="9_HistoryandPolitics"> History and Politics </a></li>
+			<li> <a class="link-text" href="#cataloge_empty" data-tracking-id="12_Science&amp;Technology"> Science &amp; Technology </a></li>
+			</ul>
+	</div>    
+
+<div class="sideimage" style="float:right; width:69%;height:70%; "> 
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/book10.jpg" class="quotes" style="padding:20px;" width="43%" height="45%">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/book9.jpg" class="quotes" style="padding:20px;" width="43%" height="45%">
+<img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/book5.jpg" class="quotes" style="padding:20px;" width="43%" height="45%">
+
+   <form method="post" action="#books_in_shopping_cart">
+        <input type="submit" class="buttonNext" onclick="location.href = '#books_in_shopping_cart'"" style="width:100%;" name="action" value="NEXT"/>
+</div>    
+</div>    
+</div>
+</div>
+
+<div id="book_background" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/aaron-burden-9zsHNt5OpqE-unsplash.jpg"
+                 lass="quotes" style="padding:20px;" width="100%" height="100%">
+        </center>
+    </div>
+</div>  
+
+<div id="cataloge_empty" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <h2 style="color:white;" id="carrt">Please Check the cart Summary!</h2>
+          <img src="https://images.unsplash.com/photo-1534878091415-1cfde407b58f?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+                 lass="quotes" style="padding:20px;" width="100%" height="100%">
+        </center>
+    </div>
+</div>
+<br>
+<div id="books_in_shopping_cart" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <h1 style="color:white;">Books in Shopping Cart:</h1>
+        </center>
+    </div>
+</div>
+<br>  
+
+<div style="background-color=white">
+      <table>
+        <tr class="bookphoto">
+          <td><center><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/prideandprejudice.jpg" height=200px></center></td>
+          <td><center><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/macbeth.jpg" height=200px></center></td>
+          <td><center><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/asyoulikeit.jpg" height=200px></center></td>
+          </tr>
+        <tr class ="textm">
+          <td style="background-color=white">Pride and Prejudice</td>
+          <td style="background-color=white">Macbeth</td>
+          <td style="background-color=white">As You Like It</td>
+        </tr>
+        <tr class ="textm">
+          <td style="background-color=white">Jane Austin</td>
+          <td style="background-color=white">William Shakespeare</td>
+          <td style="background-color=white">William Shakespeare</td>
+        </tr>
+      </table>
+    </div>
+  </>
+    <hr>
+    <section id="content" style="background-color=white">
+      <details class="shoppingCart">
+        <summary>
+          <h4>Summary</h4>
+          <span class="arrow"></span>
+        </summary>
+        <ul>
+          <li style="background-color=white"><span>2x<a href="#">Pride and Prejudice</a></span><strong>&#8377;700</strong></li>
+          <li style="background-color=white"><span>2x<a href="#">Macbeth</a></span><strong>&#8377;900</strong></li>
+          <li style="background-color=white"><span>2x<a href="#">As You Like It</a></span><strong>&#8377;425</strong></li>
+        </ul>
+        <p style="background-color=white"><span>Products:<strong>7x</strong></span><span>Total:<strong>&#8377;1224</strong></span></p>
+      </details>
+    </section>
+<div id="payment" style="float:left;display:inline;">
+    <div class="center">
+          <h1 style="color:white; text-align: center;">Reading is a conversation. All books talk. But a good book listens as well!</h1>
+    </div>
+</div>
+<br>    
+<div style="height:90%; background-image:url(icons/payment1.jpe);margin:20px; padding:20px;">
+<center>
+<table id="roundedcorners">
+	<tr>
+    <td colspan="2"><center><strong><h1 style="text-align:center; color:#4CAF50;">Payment</h1></strong></center></td>
+    </tr>
+    <tr>
+	<td><h4>Card Number:</h4></td>
+	<td><input type="text" placeholder="1111 1111 1111 1111"></td>
+	</tr>
+    <tr>
+    <td><h4>Card Holder's Name: </h4></td>
+	<td><input type="text" placeholder="(e.g.) Avetik Sahakyan"></td>
+	</tr>
+	<tr>
+	<td><h4>Password: </h4></td>
+	<td><input type="password"  placeholder="********"></td>
+	</tr>
+	<tr>
+	<td><h4>Expiration Date: </h4></td>
+	<td><input type="date" style="color:gray;"></td>
+	</tr>
+    <tr>
+    <td><h4>CVV: </h4></td>
+	<td style="color:white;"><input type="text" placeholder="999" style="width:40px;"></td>
+	</tr>
+    <tr>
+        <td colspan="2">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/pay1.png" width=55px class="paymentIcons">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/pay2.png" width=60px class="paymentIcons">
+            <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/pay3.png" width=50px class="paymentIcons">
+          <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4221505/pay4.png" width=53px class="paymentIcons">
+        </td>
+	</tr>
+    <tr>
+    <td colspan="2">&nbsp;</td>    
+    </tr>    
+	<tr>
+        <td colspan="2">
+        <form method="post" action="#orderconfirmed">
+        <a href="#final"><input type="submit" class="button" onclick="location.href = '#final
+        ;' style="width:100%;" name="action" value="Make Payment"/></a>
+
+    </form></td>
+	</tr>
+</table>
+</center>
+</div>
+<div id="orderconfirmed" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <h1 style="color:white;">Congratulation, your order is on the way. We will notify you in advance about the delivery.</h1>
+        </center>
+    </div>
+</div>
+<br>
+<br>
+
+<div id="delivery" style="float:left;display:inline;">
+
+  <div class="full" style="float:left;display:inline;">
+    <div class="center">
+        <center>
+            <img id="final" src="https://images.unsplash.com/photo-1582902281043-69c645f40cd5?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ"
+                 lass="quotes" style="padding:20px;" width="80%" height="100%">
+        </center>
+      
+    </div>
+</div> 
+<div class="footer">
+    <center>
+        <h5 style="color:white;">Copyright &copy; 2024 AAJBOOKSTORE RIGHTS RESERVED</h5>
+    </center>
+</div>   
+<br>
+<br>
+</main>
+<aside>
+    <h2>About Us</h2>
+    <p>
+        At our bookstore, every book is a doorway to a new world. Whether you're seeking thrilling adventures or heartwarming tales, we have the perfect story waiting for you.
+      </p>
+      <h2>Genres</h2>
+      <ul>
+        <li><a>Adventure</a></li>
+        <li><a>Fantasy</a></li>
+        <li><a>Feel-Good</a></li>
+        <li><a>Friendship</a></li>
+        <li><a>Romance</a></li>
+        <li><a>Sci-fi</a></li>
+        <li><a>Serial Killer</a></li>
+        <li><a>Thriller</a></li>
+      </ul>
+  </aside>
+  <script>
+    let lastScrollTop = 0;
+const sidebar = document.getElementById('sidebar');
+
+window.addEventListener('scroll', function() {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+    if (currentScroll > lastScrollTop) {
+       
+        sidebar.style.transform = 'translateY(-100%)'; 
+    } else {
+        sidebar.style.transform = 'translateY(0)'; 
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; 
+});
+  </script>
+</body>
+</html>

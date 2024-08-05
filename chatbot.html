@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+    *{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 100%;
+}
+
+body {
+    /*position: relative;*/
+    height: 100vh;
+    width: 100%;
+    background-image: url("http://www.manitowoclibrary.org/wp-content/uploads/2014/12/CO_BACKGROUND-BOOKS.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#background {
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    opacity: 1;
+    /*display: none;*/
+}
+
+#container {
+    position: absolute;
+    height: 60vh;
+    width: 50vh;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+    overflow: hidden;
+}
+
+#invalid-alert {
+    margin: auto;
+    margin-top: 10%;
+    text-align: center;
+    color: red;
+    opacity: 0;
+}
+
+.login-field {
+    padding: 12%;
+    padding-top: 5%;
+    text-align: left;
+    color: rgba(0, 47, 255, 0.899);
+    font-size: 16px;
+}
+
+.login-field label {
+    display: block;
+}
+
+.login-field input {
+    background: transparent;
+    margin-top: 5%;
+    padding: 5%;
+    text-align: left;
+    border: none;
+    padding-left: 0;
+    outline: none;  
+}
+
+.login-field input:focus {
+    animation: border-size 1s linear;
+    color: rgb(24, 41, 202);
+}
+
+@keyframes border-size {
+    0% { width: 0;}
+    100% { width: 100px}
+}
+
+.password {
+    margin-top: -5%;
+}
+
+.login-field span {
+    background-color: orange;
+    display: block;
+    height: 1px;
+    width: 100%;
+}
+
+.login-button {
+    display: block;
+    width: 85%;
+    padding: 4%;
+    text-align: center;
+    margin: auto;
+    margin-top: 3%;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-weight: bold;
+    transition: all 0.5s;
+    background: rgb(53, 118, 216);
+    border-radius: 20px;
+}
+
+.login-button:hover {
+    background: transparent;
+    color: rgb(21, 216, 145);
+    cursor: pointer;
+}
+
+#dashboard {
+    background-color: rgb(46, 10, 204);
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    display: none;
+    animation-name: show;
+    animation-duration: 2s;
+}
+
+@keyframes show {
+    from { opacity: 0 }
+    to { opacity: 1  }
+}
+
+.navbar-bg {
+    margin: 0;
+    padding: 0;
+    background-color: rgba(227, 8, 96, 0.427);
+}
+
+.navbar {
+    background-color: rgb(39, 107, 196);
+    text-align: center;
+    margin: auto;
+    margin-top: 0%;
+}
+
+.navbar ul {
+    background-color: rgb(53, 118, 216);
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar li {
+    background-color: rgb(53, 118, 216);
+    position: relative;
+    text-align: center;
+    align-items: center;
+    float: left;
+}
+
+.navbar a {
+    text-align: center;
+    text-decoration: none;
+    color: rgb(241, 237, 18);
+    display: block;
+    padding: 10px;
+}
+
+.navbar a::before{
+    content: "";
+    display: block;
+    height: 0;
+    background-color:rgb(53, 118, 216);
+    position: absolute;
+    width: 3px;
+    top: 10%;
+    left: 5%;
+    transition: all ease-in-out 0.25s;
+}
+
+.navbar a:hover::before{
+    height: 80%;
+}
+
+.sidebar {
+    /*background-color: aqua;*/
+    text-align: center;
+    margin: auto;
+    margin-top: 0;
+    padding: 0;
+    border-bottom: 2px solid rgb(53, 118, 216);
+    z-index: 1;
+}
+
+.sidebar ul {
+    background-color: rgb(53, 118, 216);
+    list-style: none;
+    display: inline-block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    background-color: rgb(53, 118, 216);
+    text-align: center;
+    align-items: center;
+    float: left;
+    padding: 10px;
+    margin: 0px 10px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+    border: 2px solid rgb(253, 159, 35);
+}
+
+.sidebar li:hover{
+    background-color: transparent;
+    border: 2px solid rgb(253, 159, 35);
+    cursor: pointer;
+}
+
+.dash-container {
+    background-color: rgb(53, 118, 216);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    
+}
+
+#welcome-text {
+    background-color: rgb(53, 118, 216);
+    position: absolute;
+    height: 10%;
+    width: 100%;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    font-weight: bold;
+    overflow: hidden;
+    text-align: center;
+    font-size: 2.5rem;
+    color: orange;
+    display: none;
+}
+
+                   
+.add-book-container {
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    padding: 5% 0 20% 0;
+    margin: 0;
+    display: none;
+}
+
+.add-book-field {
+    text-align: left;
+    color: orange;
+    font-size: 16px;
+    margin: 4% 7%;
+    padding: 0;
+}
+
+.add-book-field label {
+    background-color:rgb(53, 118, 216);
+    display: inline-block;
+    padding: 3% 2%;
+    width: 25%;
+}
+
+.add-book-field input, .add-book-field textarea {
+    background: transparent;
+    display: inline-block;
+    padding: 5%;
+    width: 50%;
+    text-align: left;
+    border: none;
+    margin-left: 0;
+    outline: none;  
+}
+
+.add-book-field input:focus, .add-book-field textarea:focus {
+    color: rgb(255, 214, 81);
+}
+
+.add-book-field span {
+    background-color: rgb(53, 118, 216);
+    display: block;
+    height: 1px;
+    width: 100%;
+}
+
+.gallery-container {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    display: none;
+}
+
+.gallery-book {
+    position: relative;
+    color: #fff;
+    text-align: center;
+    flex-basis: 100%;
+    margin: 10%;
+    padding: 0;
+    
+}
+
+.gallery-book-container {
+    display: block;
+    background-color: rgba(128, 128, 128, 0.233);
+    background-color:rgb(53, 118, 216);
+    margin: auto;
+    padding: 3%;
+    box-shadow: 1px 1px 3px 2px rgb(155, 137, 137);
+    text-align: center;
+}
+
+.gallery-book-container div {
+    padding: 0;
+    margin-top: 10px;
+    
+}
+
+.gallery-book-description {
+    overflow: auto;
+    height: 80px;
+    font-size: 0.8rem;
+}
+
+.deleteBook {
+    position: absolute;
+    background-color: red;
+    top: -25px;
+    right: -25px;
+    font-size: 1.5rem;
+    width: 12%;
+    border: 5px solid red;
+    border-radius: 50%;
+}
+
+.deleteBook:hover {
+    background-color:  rgb(53, 118, 216);
+    border: 5px solid transparent;
+    cursor: pointer;
+}
+
+.modal {
+    color: #fff;
+    z-index: 3;
+    position: fixed;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    animation-name: show;
+    animation-duration: 1s;
+    display: none;
+}
+
+.modal-content {
+    background-color: rgb(53, 118, 216);
+    margin: 200px auto;
+    padding: 30px;
+    width: 60%;
+    text-align: center;
+    box-shadow: 0 3px 8px 0 rgba(255, 166, 0, 0.3), 3px 5px 15px 0 rgba(255, 166, 0, 0.3);
+    font-size: 1.2rem;
+}
+
+.modal-content p {
+    background-color:rgb(53, 118, 216);
+    padding: 40px;
+}
+
+.modal-content span {
+    background-color: rgba(0, 0, 0, 0.61);
+    padding: 10px 15px;
+    margin: 10px 10px;
+    border: 5px solid black;
+}
+
+.modal-content span:hover {
+    background-color: rgba(0, 0, 0, 1);
+    cursor: pointer;
+}
+
+                  
+
+@media (min-width: 768px) and (max-width: 1024px) and (orientation: landscape) {
+  
+   
+    #container {
+        height: 65vh;
+        width: 55vh;
+    }
+
+    #welcome-text {
+        font-size: 3rem;
+    }
+
+    .add-book-container {
+        width: 70%;
+        margin: auto;
+    }
+
+    .gallery-container {
+        background-color: rgb(53, 118, 216);
+        align-items: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    .gallery-book {
+        background-color: rgb(53, 118, 216);
+        border: 2px solid red;
+        position: relative;
+        text-align: center;
+        color: #fff;
+        flex-basis: 40%;
+        margin: 5%;
+        padding: 0;
+        
+    }
+    
+    .gallery-book-container {
+        background-color: rgba(128, 128, 128, 0.233);
+        padding: 5%;
+        box-shadow: 1px 1px 3px 2px rgb(155, 137, 137);
+        flex-basis: 50%;
+    }
+
+    .gallery-book-description {
+        font-size: 0.7rem;
+    }
+
+    .modal-content {
+        margin: 200px auto;
+        padding: 40px;
+        width: 40%;
+        font-size: 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+ 
+    
+    #container {
+        height: 70vh;
+        width: 60vh;
+    }
+
+    #welcome-text {
+        margin-bottom: 27%;
+        font-size: 4rem;
+    }
+
+    .add-book-container {
+        width: 50%;
+        margin-left: 30%;
+    }
+
+    #dashboard {
+        background-color: black;
+
+        height: 100%;
+        width: 100%;
+        /*z-index: 1;*/
+        /*display: none;*/
+    }
+    
+    .navbar {
+        padding: 2%;
+    }
+    
+    .navbar ul {
+        margin-left: 10%;
+    }
+    
+    .navbar a {
+        padding-right: 50px;
+        margin-left: 10px;
+    }
+    
+    .sidebar {
+       background-color: rgb(53, 118, 216);
+        background-color: rgba(0, 0, 0, 0.712);
+        position: fixed;
+        height: 100vh;
+        width: 10%;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        border-right: 2px solid rgb(255, 145, 0);
+    }
+    
+    .sidebar ul {
+       background-color: rgb(53, 118, 216);
+        margin-top: 140%;
+    }
+    
+    .sidebar li {
+        padding: 10px;
+        margin: 40px 10px;
+    }
+
+    .gallery-container {
+      background-color: rgba(0, 34, 255, 0.399);
+        align-items: center;
+        /*justify-content: space-between;*/
+        flex-wrap: wrap;
+        width: 80%;
+        margin-left: 15%;
+    }
+
+    .gallery-book {
+        flex-basis: 27%;
+        margin: 3%;
+        padding: 0;
+        
+    }
+    
+    .gallery-book-description {
+        font-size: 0.65rem;
+    }
+
+    .modal-content {
+        margin: 100px auto;
+        padding: 40px;
+        width: 30%;
+        font-size: 1.5rem;
+    }
+}
+   </style>
+</head>
+<body>
+    <div id="dashboard">
+        <div class="navbar-bg">
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="#">ABOUT</a></li>
+                    <li><a href="#">CONTACT US</a></li>
+                </ul>
+            </div>
+            <div class="sidebar">
+                <ul>
+                    <li onclick="showAddBooks()">ADD BOOKS</li>
+                    <li onclick="showViewBooks()">VIEW BOOKS</li>
+                </ul>
+            </div>
+        </div>
+        <div class="dash-container">
+
+            
+            <div id="welcome-text">
+                <h1>Welcome our Book Store</h1>
+            </div>
+
+            <div class="add-book-container">
+                    <div class="add-book-field">
+                        <label>Name</label>
+                        <input type="text" id="book-name" placeholder="Enter Name...">
+                        <span></span>
+                    </div>
+                    <div class="add-book-field">
+                        <label>Author</label>
+                        <input type="text" id="book-author" placeholder="Enter Author...">
+                        <span></span>
+                    </div>
+                    <div class="add-book-field">
+                        <label>Image</label>
+                        <input type="text" id="book-image" placeholder="Enter Image Url...">
+                        <span></span>
+                    </div>
+                    <div class="add-book-field">
+                        <label>Description</label>
+                        <textarea rows="1" cols="10" id="book-description" placeholder="Add Description..."></textarea>
+                        <span></span>
+                    </div>
+                    <div class="add-book-field">
+                        <label>Price</label>
+                        <input type="number" id="book-price" placeholder="Enter Price...">
+                        <span></span>
+                    </div>
+                    <div class="add-book-field">
+                        <label>ISBN</label>
+                        <input type="text" id="book-isbn" placeholder="Enter ISBN...">
+                        <span></span>
+                    </div>
+                    <button type="button" id="add-book-button" class="login-button" onclick="openModal()">Add Book To Store</button>
+                </div>
+
+            <div class="gallery-container">
+                <div class="gallery-book">
+                    <div class="gallery-book-container">
+                        <div class="deleteBook">
+                            X
+                        </div>
+                        <div class="gallery-book-image">
+                            <a href="book1.html"><img src="https://cdn.dribbble.com/users/2127937/screenshots/12030808/cloth-bound-book-cover-mockup_4x.jpg" height="228" width="150"></a>
+                        </div>
+                        <div class="gallery-book-name">
+                            <h1>The Alchemist</h1>
+                        </div>
+                        <div class="gallery-book-author">
+                            <h1>Paulo Coelho</h1>
+                        </div>
+                        <div class="gallery-book-description">
+                            <h1>The Alchemist is a philosophical story about a young Andalusian shepherd named Santiago who dreams of finding a world treasure located somewhere in Egypt. His journey teaches him about the essential wisdom of listening to his heart, recognizing opportunity, and following his dreams.</h1>
+                        </div>
+                        <div class="gallery-book-price">
+                            <h1>&#8377; 499</h1>
+                        </div>
+                        <div class="gallery-book-isbn">
+                            <h1>ISBN</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-book">
+                    <div class="gallery-book-container">
+                        <div class="deleteBook">
+                            X
+                        </div>
+                        <div class="gallery-book-image">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTVCOMP2tWyCZjwlWSzhxGYbk8VuUNZo20E4Q&s" height="228" width="150">
+                        </div>
+                        <div class="gallery-book-name">
+                            <h1>To Kill a Mockingbird</h1>
+                        </div>
+                        <div class="gallery-book-author">
+                            <h1>Harper Lee</h1>
+                        </div>
+                        <div class="gallery-book-description">
+                            <h1>To Kill a Mockingbird is a timeless novel set in the American South during the 1930s. It follows the life of young Scout Finch, her brother Jem, and their father, Atticus, a lawyer who defends a black man unjustly accused of raping a white woman. The story explores themes of racial injustice, moral growth, and compassion.</h1>
+                        </div>
+                        <div class="gallery-book-price">
+                            <h1>&#8377; 399</h1>
+                        </div>
+                        <div class="gallery-book-isbn">
+                            <h1>ISBN</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-book">
+                    <div class="gallery-book-container">
+                        <div class="deleteBook">
+                            X
+                        </div>
+                        <div class="gallery-book-image">
+                            <img src="https://m.media-amazon.com/images/I/61ZewDE3beL._AC_UF1000,1000_QL80_.jpg" height="228" width="150">
+                        </div>
+                        <div class="gallery-book-name">
+                            <h1>1984</h1>
+                        </div>
+                        <div class="gallery-book-author">
+                            <h1>George Orwell</h1>
+                        </div>
+                        <div class="gallery-book-description">
+                            <h1>1984 is a dystopian novel set in a totalitarian society ruled by the Party and its leader, Big Brother. The story follows Winston Smith, a Party member who becomes disillusioned with the oppressive regime. The novel explores themes of government surveillance, propaganda, and the loss of individual freedom.</h1>
+                        </div>
+                        <div class="gallery-book-price">
+                            <h1>&#8377; 499</h1>
+                        </div>
+                        <div class="gallery-book-isbn">
+                            <h1>ISBN</h1>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <div id="background">
+        <div id="container">
+            <div class="login-box">
+                <div id="invalid-alert">
+                    <h1>Invalid Input</h1>
+                </div>
+                <div class="login-field username">
+                    <label>Username</label>
+                    <input type="text" id="name" placeholder="Enter Userame...">
+                    <span></span>
+                </div>
+                <div class="login-field password">
+                    <label>Password</label>
+                    <input type="password" id="pass" placeholder="Enter Password...">
+                    <span></span>
+                </div>
+                <button type="button" class="login-button" onclick="validate()">Sign In</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="addBookModal" class="modal">
+        <div class="modal-content">
+            <p>Are you sure?</p>
+            <span onclick="">Yes</span>
+            <span onclick="closeModal()">No</span>
+        </div>
+    </div>
+
+
+    <script>
+function validate() {
+    const name = document.getElementById("name");
+    const password = document.getElementById("pass");
+
+    if(name.value !== "aaj" || password.value !== "aaj") {
+        document.getElementById('invalid-alert').style.opacity = "1";
+        document.getElementById('container').style.boxShadow = "1px 1px 20px 6px red";
+    } else {
+        
+        document.getElementById("background").style.transition = "all 1s linear";
+        document.getElementById("background").style.opacity = "0";
+
+        
+        setTimeout(function(){
+            document.getElementById("background").style.display = "none";
+            document.getElementById("dashboard").style.display = "block";
+            document.getElementById("welcome-text").style.display = "block";
+        }, 1000);
+        
+    }
+
+    name.value = "";
+    password.value = "";
+}
+
+function showAddBooks() {
+    document.getElementsByClassName("add-book-container")[0].style.display = "block";
+    document.getElementsByClassName("gallery-container")[0].style.display = "none";
+    document.getElementById("welcome-text").style.display = "none";
+}
+
+function showViewBooks(){
+    document.getElementsByClassName("add-book-container")[0].style.display = "none";
+    document.getElementsByClassName("gallery-container")[0].style.display = "flex";
+    document.getElementById("welcome-text").style.display = "none";
+}
+function openModal(){
+    document.getElementsByClassName("modal")[0].style.display = "block";
+}
+
+            
+
+window.addEventListener("click", outsideClick);
+
+function outsideClick(e){
+    if(e.target === document.getElementsByClassName("modal")[0]) {
+        document.getElementsByClassName("modal")[0].style.display = "none";
+    }
+}
+
+function closeModal(){
+    document.getElementsByClassName("modal")[0].style.display = "none";
+}
+    </script>
+</body>
+</html>

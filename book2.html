@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital@1&display=swap');
+* {box-sizing: border-box;}
+body {
+background-color: #bec4b1;
+margin: 0;
+padding: 0;
+}
+
+
+/*Begin navbar*/
+.navbar {
+  width: 100%;
+  background-color: #3A3A29;
+  overflow: hidden;
+  position: fixed;
+  z-index: 1;
+}
+/* Navbar links */
+.navbar a {
+  width: 14%;
+  float: left;
+  text-align: center;
+  padding: 1%;
+  color: White;
+  text-decoration: none;
+  font-size: 17px;
+  /*font-family: 'Libre Baskerville', serif;*/
+}
+/* Navbar links on mouse-over */
+.navbar a:hover {
+  background-color: #929C7D;
+  cursor: pointer;
+}
+/* Current/active navbar link */
+.active {
+  background-color: #000000;
+}
+/* Add responsiveness - will automatically display the navbar vertically instead of horizontally on screens less than 500 pixels */
+@media screen and (max-width: 500px) {
+  .navbar a {
+    float: none;
+    display: block;
+  }
+}
+/*@media rule to apply different styles for different media types. i.e:devices*/
+/*End navbar*/
+
+
+/*begin hero-image*/
+.hero {
+    position: relative;
+   /*width: 100vw;*/
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url(https://i.ibb.co/8d6n5Tf/background7.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    filter: brightness(60%);
+}
+.hero-content {
+    position: relative; 
+    font-family: "Monserrat";
+    color: white;
+    text-align: center;
+    margin: 0.625em;
+}
+.hero-title {
+  color: #D4A186;
+    font-size: 5em;
+    font-weight: 600;
+    margin-bottom: 0;
+  font-family: 'Monoton', cursive;
+}
+.hero-subtitle {
+    font-size: 2em;
+    font-weight: 200;
+    margin-top: 1em;
+  font-family: 'Libre Baskerville', serif;
+}
+/*End hero-image*/
+
+
+/*Begin second navbar*/
+h5 {
+  font-size: 1em;
+  font-weight: bold;
+  text-decoration: underline overline;
+  font-family: 'Libre Baskerville', serif;
+}
+.navbar2 {
+  overflow: hidden;
+  background-color: #3A3A29;
+  font-family: 'Libre Baskerville', serif;
+  text-align: center;
+  z-index: 1;
+  width: 100%;
+}
+/* Links inside the navbar */
+.navbar2 a {
+  float: left;
+  text-align: center;
+  padding: 12px;
+  color: white;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+/* The dropdown container */
+.dropdown {
+  float: left;
+  width: 33.33%;
+  overflow: hidden;
+}
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 1.2em;
+  border: none;
+  outline: none;
+  color: white;
+  font-family: 'Libre Baskerville', serif;
+  padding: 14px 16px;
+  background-color: inherit;
+  /*font: inherit;*/ 
+  margin: 0; 
+}
+.navbar2 a:hover, .dropdown:hover .dropbtn {
+ background-color: #929C7D;
+ cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #929C7D;
+  width: 100%;
+  left: 0;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+  cursor: pointer;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 10px;
+  background-color: #929C7D;
+  height: auto;
+}
+/* Style links inside the columns */
+.column a {
+  float: none;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+.column a:hover {
+  background-color: #585e4b;
+  cursor: pointer;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+@media screen and (max-width: 500px) {
+  .navbar2 a {
+    float: none;
+    display: block;
+  }
+}
+h3 {
+font-size: 3em;
+color: black;
+text-align: center;
+font-family: 'Libre Baskerville', serif;
+}
+h4 {
+ font-size: 2em;
+  color: black;
+ text-align: center;
+  font-family: 'Libre Baskerville', serif;
+}
+.top-picks {
+  padding: 2% 4% 2% 4%;
+}
+.book-container {
+  display: flex;
+  width: 100%;
+  padding: 2% 2%;
+  box-sizing: border-box;
+  height: 100vh;
+}
+.book-box {
+  flex: 1;
+  overflow: hidden;
+  transition: 0.5s;
+  margin: 0 2%;
+  line-height: 0;
+}
+.book-box > img {
+  width: 200%;
+  height: calc(100% - 10vh);
+  object-fit: cover;
+  transition: 0.5s;
+}
+.book-box:hover {
+  flex: 1 1 35%;
+}
+.book-box:hover > img {
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+.rules {
+  padding: 0% 2% 6% 2%;
+  color: #282121;
+}
+.rules-list{
+  text-align: center;
+  list-style-position: inside;
+  list-style: none;
+  font-size: 1.5em;
+  color: #282121;
+}
+.rules-list li{
+font-family: sans-serif;
+margin: 0.2em;
+}
+.events-table {
+  border-collapse: separate;
+  width: 88%;
+  font-family: 'Libre Baskerville', serif;
+  color: Black;
+  margin: 0% 6% 6% 6%;
+  padding: 0% 6% 10% 6%;
+}
+.events-table td,.events-table th {
+  border: 1px solid #3A3A29;
+  padding: 8px;
+}
+.events-table tr:hover {
+  background-color: #929C7D;
+  cursor: pointer;
+}
+.events-table th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #929C7D;
+  color: white;
+  font-family: 'Libre Baskerville', serif;
+}
+.things > .content {
+  float: left;
+  width: 50%;
+  height: 500px;
+  -webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;    
+	box-sizing: border-box;
+  position: relative;
+}
+.things > .content p {
+  font-family: sans-serif;
+  text-transform: uppercase;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  position: absolute;
+  height: 150px;
+  color: #89323B;
+}
+/* Arrow */
+.arrow {
+	position: relative;
+  margin: 0 auto;
+  width: 100px;
+}
+.arrow .curve {
+	border: 2px solid #BE5F4B;
+	border-color: transparent transparent transparent #BE5F4B;
+	height: 360px;
+	width: 600px;
+	border-radius: 230px 0 0 150px;
+}
+.arrow .point {
+	position: absolute;
+	left: 40px;
+	top: 315px;
+}
+.arrow .point:before, .arrow .point:after {
+	border: 1px solid #BE5F4B;
+	height: 25px;
+	content: "";
+	position: absolute;
+}
+.arrow .point:before {
+	top: -11px;
+	left: -11px;
+	transform:rotate(-74deg);
+	-webkit-transform:rotate(-74deg);
+  -moz-transform:rotate(-74deg);
+  -ms-transform: rotate(-74deg);
+}
+.arrow .point:after {
+  top: -20px;
+	left: 5px;
+	transform:rotate(12deg);
+	-webkit-transform: rotate(12deg);
+  -moz-transform:rotate(12deg);
+  -ms-transform: rotate(12deg);
+}
+.footer #button{
+	width:35px;
+	height:35px;
+	border: #C0A07E 12px solid;
+	border-radius:35px;
+	margin:0 auto;
+	position:relative;
+	-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+}
+.footer #button:hover{
+	width:35px;
+	height:35px;
+	border: #C0A07E 12px solid;
+	-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+	position:relative;
+}
+.footer {
+	bottom:0;
+	left:0;
+	position:fixed;
+  width: 100%;
+  height: 2em;
+  overflow:hidden;
+  margin:0 auto;
+	-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+	z-index:2
+}
+.footer:hover {
+	-webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  -ms-transition: all 1s ease;
+  transition: all 1s ease;
+	height: 10em;
+  cursor: pointer;
+}
+.footer #container{
+margin-top:5px;
+width:100%;
+height:100%;
+position:relative;
+top:0;
+left:0;
+background: #C0A07E;
+}
+.footer #cont{
+  position:relative;
+  top:-45px;
+  right:190px;
+	width:150px;
+	height:auto;
+	margin:0 auto;
+}
+.footer_center{
+	width:500px;
+	float:left;
+  text-align:center;
+}
+.footer p{
+font-family: 'Libre Baskerville', serif;
+	font-size: 1.4em;
+	font-weight: 100;
+	margin-top:70px;
+	margin-left:40px;
+  color: black;
+}
+</style>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<div class="navbar">
+  <a class="active" href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
+  <a href="book1.html"><i class="fa fa-fw fa-search"></i> Main Page</a>
+  <a href="#top-picks">Our Top Picks</a>
+  <a href="#store-info">Store & Events</a>
+  <a href="mailto:lynn-kassem@hotmail.com" target="_blank"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+</div>
+<!--End navbar-->
+
+<!--Begin hero-image-->
+<section id="home" class="hero">
+<div class="hero-content">
+<h1 class="hero-title">The AAJ Bookstore</h1>
+<h2 class="hero-subtitle">“Bookshops are places of endless entertainment and renewal – what’s not to love?”</h2>      
+    </div>
+</section>
+<!--End hero-image-->
+
+<!--Begin second navbar-->
+<div class="navbar2">
+  <div class="dropdown">
+    <button class="dropbtn">Social Media <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <div class="row">
+        <div class="column">
+<a href="#" class="fa fa-linkedin"> LinkedIn</a>
+          <a href="#" class="fab fa-tiktok">TikTok</a>
+        </div>
+        <div class="column">
+            <a href="#" class="fa fa-instagram"> Instagram</a>
+          <a href="#" class="fa fa-whatsapp"> Whatsapp</a>
+        </div>
+        <div class="column">
+          <a href="#" class="fa fa-facebook"> Facebook</a>
+           <a href="#" class="fa fa-twitter"> Twitter</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Our Book Colloection <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <div class="row">
+        <div class="column">
+          <h5>Fiction</h5>
+          <a href="#">Sci-Fi & Fantasy</a>
+          <a href="#">Thrillers</a>
+          <a href="#">Contemporary</a>
+        </div>
+        <div class="column">
+          <h5>Non-Fiction</h5>
+          <a href="#">History</a>
+          <a href="#">Bigraphy</a>
+          <a href="#">Cookbooks, Health and Dieting</a>
+        </div>
+        <div class="column">
+          <h5>Other</h5>
+          <a href="#">E-books</a>
+          <a href="#">AudioBooks</a>
+          <a href="#">Manga & Comics</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="dropdown">
+    <button class="dropbtn">Gifts and Accessories <i class="fa fa-caret-down"></i></button>
+    <div class="dropdown-content">
+      <div class="row">
+        <div class="column">
+          <h5>Bookish Accessories</h5>
+          <a href="#">Bookmarks</a>
+          <a href="#">Costum Book Stamps</a>
+          <a href="#">Page Anchors</a>
+        </div>
+        <div class="column">
+          <h5>Book Merchandise</h5>
+          <a href="#">Bookend Sets</a>
+          <a href="#">Literary Post Cards</a>
+          <a href="#">Other</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="main">
+<div class="top-picks">
+    <h3 id="top-picks">Our Top Picks</h3>
+    <h4>Best Sellers</h4>
+<div class="book-container">
+  <div class="book-box">
+<img src="https://i.ibb.co/nswyRCT/atomic-habits.jpg" alt="atomic-habits">
+  </div>
+  <div class="book-box">
+<img src="https://i.ibb.co/ctf2S9q/the-storyteller.jpg" alt="the-storyteller">
+  </div>
+  <div class="book-box">
+<img src="https://i.ibb.co/WgK0nst/seven-husbands.jpg" alt="seven-husbands">
+  </div>
+  <div class="book-box">
+    <img src="https://i.ibb.co/5YkQkCR/pokemon.jpg" alt="pokemon">
+  </div>
+  <div class="book-box">
+    <img src="https://i.ibb.co/TrQjxvd/dune.jpg" alt="dune">
+  </div>
+ <div class="book-box">
+<img src="https://i.ibb.co/6vm2tR2/cloud-cuckoo-land.jpg" alt="cloud-cuckoo-land">
+  </div>
+</div>
+    <h4>New Releases</h4>
+ <div class="book-container">
+  <div class="book-box">
+<img src="https://i.ibb.co/dDTv3Kf/go-tell-the-bees.jpg" alt="go-tell-the-bees">
+  </div>
+  <div class="book-box">
+<img src="https://i.ibb.co/Lh90LxG/it-ends-with-us.jpg" alt="it-ends-with-us">
+  </div>
+  <div class="book-box">
+<img src="https://i.ibb.co/5Mx7Wbf/bunnicula.jpg" alt="bunnicula">
+  </div>
+  <div class="book-box">
+    <img src="https://i.ibb.co/Jn5zJ8p/will.jpg" alt="will">
+  </div>
+  <div class="book-box">
+<img src="https://i.ibb.co/9pBJM7c/the-wonderful-things-you-ll-be.jpg" alt="the-wonderful-things-you-ll-be">
+  </div>
+ <div class="book-box">
+<img src="https://i.ibb.co/JKKVcfJ/the-boy-the-mole-the-fox-and-the-horse.jpg" alt="the-boy-the-mole-the-fox-and-the-horse">
+  </div>
+  </div>
+  </div>
+<div class="rules">
+   <h3>Store shopping & Cafe rules</h3>
+    <h4>You can still come and enjoy browsing books the old fashion way or have a drink while reading and chatting at our cafe</h4>
+    <ul class="rules-list">
+      <Li>Shhh.. keep in mind that others might be reading</li>
+      <Li>And finally have a wonderful time</li>
+    </ul>
+  </div>
+<div class="Sto-eve">
+  <h3 id="store-info">Store Events</h3>
+  <h4>The following table show the dates of the upcoming events in our store </h4> 
+  <table class="events-table">
+    <tr>
+      <th>Date</th>
+      <th>Event</th>
+    </tr>
+    <tr>
+      <td>Monday</td>
+      <td>Signing: Atomic Habits book</td>
+    </tr>
+    <tr>
+      <td>Tuesday</td>
+      <td>Fantasy Books Deals day</td>
+    </tr>
+    <tr>
+      <td>Wednesday</td>
+      <td>Book Club: Discussion Session</td>
+    </tr>
+     <tr>
+      <td>Thursday</td>
+       <td>Book Signing: The Amazing cookbook of tomorrow</td>
+    </tr>
+     <tr>
+      <td>Wednesday</td>
+      <td>Book Club: Discussion Session</td>
+    </tr>
+     <tr>
+      <td>Thursday</td>
+      <td>Hand-made bookish accessories workshop</td>
+    </tr>
+  </table>
+</div>
+  </div>
+<div class="things">
+  <div class="content">
+    <div class="arrow">
+      <div class="curve"></div>
+      <div class="point"></div>
+    </div>
+  </div>
+   <div class="content">
+  <p class="note"> You can find our contact Info here<br>just click On the hoverable circle that is the footer</p>
+  </div>
+</div>
+<div class="footer">
+<div id="button"></div>
+<div id="container">
+<div id="cont">
+<div class="footer_center">
+<p> Address: Lorem ipsum dolor sit amet<br>
+<i class="fa fa-phone"> xxxxx xxxxx</i><br>
+&copy; Webpage by AAJ Book Store All rights reserved
+  </p>
+</div>
+</div>
+</div>
+</div>
+
+</body>
+</html>
